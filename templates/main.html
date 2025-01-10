@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Find</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+      <style>
+         .my_style{
+            background-color:paleturquoise; border:none;
+         }
+      </style>
+      <script type="text/javascript">
+         function checkit()
+         {
+            document.getElementById("linkenteredid").checked=true;
+         }
+      </script>
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- end loader -->
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="index.html"><img src="{{ url_for('static',filename='images/logo.png') }}"  width="100px"     alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                              <li class="nav-item">
+                                 <a class="nav-link"  href="{{ url_for('search') }}">Search</a>
+                              </li>                             
+                           </ul>
+                           <div class="Call"><a href="#"> <span class="yellow">Call Us : </span>12345677890</a></div>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- end header inner -->
+      <!-- end header -->
+      <!-- banner -->
+      <section class="banner_main">
+         <div class="container">
+         <div class="row d_flex">
+            <!-- <div class="col-md-3">
+               <div class="text-bg">
+                  <h1>Find Your People Here</h1>
+                  <p>“Having something and losing it, it's so much crueler than never having had it.”
+                     ― Victoria Schwab, The Unbound</p>
+                  <a class="read_more" href="#">#</a>
+               </div>
+            </div> -->
+            <div class="col-md-12">
+               <form id="request" class="main_form" action="/uploader" method="POST" enctype = "multipart/form-data">
+                  <h1 style="color: orange; text-align: center;" >Find Your People Here</h1>
+                  <div class="row">
+                     <div class="col-md-3 ">
+                        <input class="contactus" placeholder="Aadhar Id" type="type" name="aadhar" required> 
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Full Name" type="type" name="name" required> 
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Father's Name" type="type" name="fname" required>                          
+                     </div>
+                       <div class="col-md-3">
+                        <input class="contactus" placeholder=" Gender" type="type" name="gender" required>                     
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Age" type="type" name="age"> 
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Residence Place" type="type" name="rplace">                          
+                     </div>
+                     <div class="col-md-3 ">
+                        <input class="contactus" placeholder="Date Missing" type="type" name="date_missing"> 
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Place Missing" type="type" name="place_missing"> 
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Height in ft" type="type" name="height">                          
+                     </div>
+                     <div class="col-md-3 ">
+                        <input class="contactus" placeholder="Weight in kgs" type="type" name="weight"> 
+                     </div>
+                     <div class="col-md-3 ">
+                        <input class="contactus" placeholder="Com" type="type" name="Complexion"> 
+                     </div>
+                     <div class="col-md-3 ">
+                        <input class="contactus" placeholder="Build" type="type" name="Build"> 
+                     </div>
+                     <div class="col-md-3 ">
+                        <input class="contactus" placeholder="Hair" type="type" name="Hair"> 
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Fir Number" type="type" name="fir_number"> 
+                     </div>
+                     <div class="col-md-3">
+                        <input class="contactus" placeholder=" Place" type="type" name="place">                          
+                     </div>
+                     <br> <br>
+                     <div class="col-md-9">
+                        <input class="contactus" placeholder="Scrap Data" type="type" name="link"> 
+                        
+                        <input type="checkbox" name="linkentered" id="linkenteredid">
+                     </div>
+                     <div class="col-md-3">
+                        <button class="btn btn-dark" type="button" onclick="checkit()">Submit</button>
+                     </div>
+                     <div class="col-md-12">
+                        <Label style="color: aliceblue; font-size: medium;" >Profile image   :   
+                        </Label>  
+                        <input type="file"  id="pfile" name="pfile">
+                     </div>
+                     <div class="col-md-12">
+                        <Label style="color: aliceblue; font-size: medium;" >Image data      :   
+                        </Label>  
+                        <input type="file"  id="file" name="file">
+                     </div>
+                     <br><br>
+                     <div class="col-sm-12">
+                        <button class="send_btn" type="submit">Submit</button>
+                        
+
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </section>
+      <!-- end banner -->
+   </body>
+</html>
+

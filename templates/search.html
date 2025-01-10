@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Find</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+      <style>
+         .my_style{
+            background-color:paleturquoise; border:none;
+         }
+         img {
+            border-radius: 50%;
+            }
+      </style>
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- end loader -->
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="index.html"><img src="{{ url_for('static',filename='images/logo.png') }}"       alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                               
+                              <li class="nav-item">
+                                <a class="nav-link"  href="{{ url_for('index') }}">Upload User</a>
+                             </li>                             
+                             
+                           </ul>
+                           <div class="Call"><a href="#"> <span class="yellow">Call Us : </span>12345677890</a></div>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+
+
+
+
+      <div class="food">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="titlepage">
+                    <h2> <strong class="yellow">People </strong>Searched</h2>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              {%for i in data%}
+              <div class="col-md-4">
+                 <div class="food_box ">
+                    <i><img src="data:image/png;base64, {{i[0][2:-1]}}" alt="#"/></i>
+                    <br>
+                    <br>
+                    <h3 style="font-weight: 800;" >Aadhar ID : {{i[1]}}</h3>
+                    <h3 style="font-weight: 800;">Latitude : {{i[2]}}</h3>
+                    <h3 style="font-weight: 800;">Longitude : {{i[3]}}</h3>
+                    <h3 style="font-weight: 800;">User name : {{i[4]}}</h3>
+                    <h3 style="font-weight: 800;">User Phone NO : {{i[5]}}</h3>
+                    </div>
+              </div>
+              {%endfor%}
+           </div>
+        </div>
+     </div>
+
+
+
+   </body>
+</html>
+
